@@ -5,7 +5,7 @@ extends "res://characters/agent_base/AgentBase.gd"
 export var isAttacking : bool = false
 
 func move(delta):
-	GRAVITY = 0
+#	GRAVITY = 0
 	
 	if Input.is_action_just_pressed("attack"):
 		$AnimationPlayer.play("attack1")
