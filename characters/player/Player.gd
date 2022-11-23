@@ -3,6 +3,7 @@ extends "res://characters/agent_base/AgentBase.gd"
 
 
 export var isAttacking : bool = false
+export var attackPower : int = 35
 
 func move(delta):
 	
@@ -43,6 +44,6 @@ func move(delta):
 
 func _on_HitArea_body_entered(body):
 	if body.has_method("handle_hit"):
-		body.handle_hit()
+		body.handle_hit(attackPower)
 	
 	

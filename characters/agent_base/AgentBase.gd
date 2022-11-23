@@ -30,7 +30,7 @@ func move(delta):
 	# Setting the position
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	
+
 func die():
 	queue_free()
 	
