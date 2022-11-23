@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/enemy_base/EnemyBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/demo_enemy/demo_enemy_spriteframes.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://characters/demo_enemy/DemoEnemy.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -125,6 +126,7 @@ tracks/1/keys = {
 }
 
 [node name="DemoEnemy" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 isGettingHit = false
 
 [node name="AnimatedSprite" parent="." index="1"]
