@@ -1,16 +1,18 @@
-extends KinematicBody2D
+extends "res://characters/agent_base/AgentBase.gd"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var isGettingHit : bool = false
+var isDead : bool = false
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+func move(delta : float):
+	
+	if !isGettingHit:
+		$AnimationPlayer.play("idle")
+	
+	.move(delta)
 
 
 func handle_hit():
-	print("BEING ATTACKED!")
+	print("enemy got hit!")
+	isGettingHit = true
+	$AnimationPlayer.play("hit")

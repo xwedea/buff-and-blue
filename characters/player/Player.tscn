@@ -200,6 +200,11 @@ animations = [ {
 "name": "attack2",
 "speed": 5.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "attack_dash",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ) ],
 "loop": true,
 "name": "fall",
@@ -220,6 +225,10 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 } ]
+
+[sub_resource type="CapsuleShape2D" id=42]
+radius = 11.8114
+height = 14.6791
 
 [sub_resource type="Animation" id=19]
 length = 0.001
@@ -276,7 +285,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitArea/HitCollision:disabled")
+tracks/3/path = NodePath("AnimatedSprite/HitArea/HitCollision:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -400,10 +409,6 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=42]
-radius = 11.8114
-height = 14.6791
-
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 isAttacking = false
@@ -411,8 +416,16 @@ isAttacking = false
 [node name="AnimatedSprite" parent="." index="1"]
 position = Vector2( 5, -21 )
 frames = SubResource( 47 )
-animation = "idle"
-frame = 3
+animation = "attack_dash"
+
+[node name="HitArea" type="Area2D" parent="AnimatedSprite" index="0"]
+position = Vector2( -5, 21 )
+
+[node name="HitCollision" type="CollisionShape2D" parent="AnimatedSprite/HitArea" index="0"]
+position = Vector2( 25, 0 )
+rotation = -0.109956
+shape = SubResource( 42 )
+disabled = true
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/RESET = SubResource( 19 )
@@ -422,12 +435,4 @@ anims/idle = SubResource( 18 )
 anims/jump = SubResource( 43 )
 anims/run = SubResource( 40 )
 
-[node name="HitArea" type="Area2D" parent="." index="3"]
-
-[node name="HitCollision" type="CollisionShape2D" parent="HitArea" index="0"]
-position = Vector2( 25, 0 )
-rotation = -0.109956
-shape = SubResource( 42 )
-disabled = true
-
-[connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite/HitArea" to="." method="_on_HitArea_body_entered"]
