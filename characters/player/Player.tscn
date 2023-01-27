@@ -1,15 +1,16 @@
 [gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://characters/agent_base/AgentBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/player/player_assets/_Jump.png" type="Texture" id=2]
+[ext_resource path="res://assets/character_assets/player_assets/_Jump.png" type="Texture" id=2]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=3]
-[ext_resource path="res://characters/player/player_assets/_Idle.png" type="Texture" id=4]
-[ext_resource path="res://characters/player/player_assets/_AttackComboNoMovement.png" type="Texture" id=5]
-[ext_resource path="res://characters/player/player_assets/_Run.png" type="Texture" id=6]
-[ext_resource path="res://characters/player/player_assets/_Fall.png" type="Texture" id=7]
-[ext_resource path="res://characters/player/player_assets/_AttackCombo.png" type="Texture" id=8]
-[ext_resource path="res://characters/player/player_assets/_Attack2.png" type="Texture" id=9]
-[ext_resource path="res://characters/player/player_assets/_Death.png" type="Texture" id=10]
+[ext_resource path="res://assets/character_assets/player_assets/_Idle.png" type="Texture" id=4]
+[ext_resource path="res://assets/character_assets/player_assets/_AttackComboNoMovement.png" type="Texture" id=5]
+[ext_resource path="res://assets/character_assets/player_assets/_Run.png" type="Texture" id=6]
+[ext_resource path="res://assets/character_assets/player_assets/_Fall.png" type="Texture" id=7]
+[ext_resource path="res://assets/character_assets/player_assets/_AttackCombo.png" type="Texture" id=8]
+[ext_resource path="res://assets/character_assets/player_assets/_Attack2.png" type="Texture" id=9]
+[ext_resource path="res://assets/character_assets/player_assets/_Death.png" type="Texture" id=10]
+
 
 [sub_resource type="AtlasTexture" id=48]
 flags = 4
