@@ -1,46 +1,60 @@
 extends "res://characters/agent_base/AgentBase.gd"
 
+enum PlayerStatus {NEUTRAL, ATTACKING, DIALOG}
 
-
-export var isAttacking : bool = false
 export var attackPower : int = 35
+export var bAttackCombo = false
+
+var hasDoubleJump = true
+var stateMachine
+
+func _ready():
+	stateMachine = $AnimationTree.get("parameters/playback")
+	stateMachine.travel("idle")
+
 
 func move(delta):
+	var current_state = stateMachine.get_current_node()
 	
-	if Input.is_action_just_pressed("attack"):
-		$AnimationPlayer.play("attack1")
-		isAttacking = true
-	
-	if isAttacking:
-		return
-	
-	if Input.is_action_pressed("move_right"):
-		velocity.x += ACCELERATION
-		facing_right = true
-		$AnimationPlayer.play("run")
-	elif Input.is_action_pressed("move_left"):
-		velocity.x -= ACCELERATION
-		facing_right = false
-		$AnimationPlayer.play("run")
+	if Input.is_action_pressed("attack"):
+		print("AAAAAAAAA")
+		
+	if current_state != "attack1" and current_state != "attack2":
+		if Input.is_action_pressed("move_right"):
+			velocity.x += ACCELERATION
+			facing_right = true
+		elif Input.is_action_pressed("move_left"):
+			velocity.x -= ACCELERATION
+			facing_right = false
+		else:
+			velocity.x = lerp(velocity.x, 0, 0.2)
+		# JUMP
+		if Input.is_action_just_pressed("jump") && (hasDoubleJump || is_on_floor()):
+			velocity.y = -JUMPFORCE
+			hasDoubleJump = is_on_floor()
 	else:
-		velocity.x = lerp(velocity.x, 0, 0.2)
-		$AnimationPlayer.play("idle")
-	
-	
-	# JUMP
-	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
-			velocity.y -= JUMPFORCE
-			$AnimationPlayer.play("jump")
-	else:
-		if velocity.y > 0:
-			$AnimationPlayer.play("fall")
-		elif velocity.y < 0:
-			$AnimationPlayer.play("jump")
-	
-	.move(delta)
-	
+		velocity.x = lerp(velocity.x, 0, 0.05) 
 
+
+	if Input.is_action_just_pressed("attack"):
+		if !$ComboTimer.is_stopped():
+			stateMachine.travel("attack2")
+		else:
+			stateMachine.travel("attack1")	
+	elif velocity.y > 0:
+		stateMachine.travel("fall")
+	elif velocity.y < 0:
+		stateMachine.travel("jump")
+	elif is_on_floor():
+		if abs(velocity.x) > 50:
+			stateMachine.travel("run")
+		else:
+			stateMachine.travel("idle")
+		
+	.move(delta)
+
+func start_combo_timer():
+	$ComboTimer.start()
 
 func _on_HitArea_body_entered(body):
 	if body.has_method("handle_hit"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://characters/agent_base/AgentBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/player/player_assets/_Jump.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://characters/player/player_assets/_AttackComboNoMovement.png" type="Texture" id=5]
 [ext_resource path="res://characters/player/player_assets/_Run.png" type="Texture" id=6]
 [ext_resource path="res://characters/player/player_assets/_Fall.png" type="Texture" id=7]
+[ext_resource path="res://characters/player/player_assets/_AttackCombo.png" type="Texture" id=8]
+[ext_resource path="res://characters/player/player_assets/_Attack2.png" type="Texture" id=9]
+[ext_resource path="res://characters/player/player_assets/_Death.png" type="Texture" id=10]
 
 [sub_resource type="AtlasTexture" id=48]
 flags = 4
@@ -26,6 +29,26 @@ region = Rect2( 240, 0, 120, 80 )
 [sub_resource type="AtlasTexture" id=51]
 flags = 4
 atlas = ExtResource( 5 )
+region = Rect2( 360, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=102]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=103]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 120, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=104]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 240, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=105]
+flags = 4
+atlas = ExtResource( 8 )
 region = Rect2( 360, 0, 120, 80 )
 
 [sub_resource type="AtlasTexture" id=52]
@@ -56,6 +79,86 @@ region = Rect2( 960, 0, 120, 80 )
 [sub_resource type="AtlasTexture" id=57]
 flags = 4
 atlas = ExtResource( 5 )
+region = Rect2( 1080, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=106]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=107]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 120, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=108]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 240, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=109]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 360, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 480, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 600, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=122]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=123]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 120, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=124]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 240, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=125]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 360, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=126]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 480, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=127]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 600, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=128]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 720, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=129]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 840, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=130]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 960, 0, 120, 80 )
+
+[sub_resource type="AtlasTexture" id=131]
+flags = 4
+atlas = ExtResource( 10 )
 region = Rect2( 1080, 0, 120, 80 )
 
 [sub_resource type="AtlasTexture" id=58]
@@ -195,14 +298,29 @@ animations = [ {
 "name": "attack1",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ) ],
+"loop": true,
+"name": "attack1_mov",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ) ],
 "loop": true,
 "name": "attack2",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ) ],
+"loop": true,
+"name": "attack2_mov",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "attack_dash",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ) ],
+"loop": true,
+"name": "die",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ) ],
@@ -273,16 +391,114 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:isAttacking")
+tracks/2/path = NodePath("AnimatedSprite/HitArea/HitCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("ComboTimer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.6 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=112]
+resource_name = "attack1_mov"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ "attack1_mov" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("ComboTimer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=114]
+resource_name = "attack2"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "attack2" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("ComboTimer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("AnimatedSprite/HitArea/HitCollision:disabled")
@@ -291,15 +507,71 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
+"times": PoolRealArray( 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 
+[sub_resource type="Animation" id=113]
+resource_name = "attack2_mov"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "attack2_mov" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=132]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "die" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
 [sub_resource type="Animation" id=46]
 resource_name = "fall"
 length = 0.3
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -384,6 +656,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=40]
 resource_name = "run"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -409,19 +682,97 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[node name="Player" instance=ExtResource( 1 )]
+[sub_resource type="AnimationNodeAnimation" id=115]
+animation = "attack1"
+
+[sub_resource type="AnimationNodeAnimation" id=116]
+animation = "attack2"
+
+[sub_resource type="AnimationNodeAnimation" id=133]
+animation = "die"
+
+[sub_resource type="AnimationNodeAnimation" id=85]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=86]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=87]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=88]
+animation = "run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=90]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=92]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=93]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=96]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=97]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=117]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=118]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=119]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=120]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=121]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=134]
+
+[sub_resource type="AnimationNodeStateMachine" id=98]
+states/attack1/node = SubResource( 115 )
+states/attack1/position = Vector2( 561.815, 104.293 )
+states/attack2/node = SubResource( 116 )
+states/attack2/position = Vector2( 568.815, 277.145 )
+states/die/node = SubResource( 133 )
+states/die/position = Vector2( 366, 29.1452 )
+states/fall/node = SubResource( 85 )
+states/fall/position = Vector2( 7, 271.293 )
+states/idle/node = SubResource( 86 )
+states/idle/position = Vector2( 366, 125.293 )
+states/jump/node = SubResource( 87 )
+states/jump/position = Vector2( 133, 104.293 )
+states/run/node = SubResource( 88 )
+states/run/position = Vector2( 283, 271.293 )
+transitions = [ "run", "idle", SubResource( 89 ), "idle", "run", SubResource( 90 ), "idle", "jump", SubResource( 92 ), "jump", "idle", SubResource( 93 ), "jump", "fall", SubResource( 94 ), "fall", "jump", SubResource( 95 ), "fall", "run", SubResource( 96 ), "run", "fall", SubResource( 97 ), "idle", "attack1", SubResource( 117 ), "attack1", "attack2", SubResource( 118 ), "attack2", "idle", SubResource( 119 ), "attack1", "idle", SubResource( 120 ), "idle", "attack2", SubResource( 121 ), "idle", "die", SubResource( 134 ) ]
+start_node = "idle"
+graph_offset = Vector2( -214.946, -14.5654 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=99]
+
+[node name="Player" groups=["player"] instance=ExtResource( 1 )]
+collision_layer = 7
+collision_mask = 0
 script = ExtResource( 3 )
-isAttacking = false
 attackPower = 35
+bAttackCombo = true
 
 [node name="AnimatedSprite" parent="." index="1"]
 position = Vector2( 5, -21 )
 frames = SubResource( 47 )
-animation = "attack1"
+animation = "idle"
 frame = 3
 
 [node name="HitArea" type="Area2D" parent="AnimatedSprite" index="0"]
 position = Vector2( -5, 21 )
+collision_layer = 8
+collision_mask = 16
 
 [node name="HitCollision" type="CollisionShape2D" parent="AnimatedSprite/HitArea" index="0"]
 position = Vector2( 31, -3 )
@@ -432,9 +783,28 @@ disabled = true
 [node name="AnimationPlayer" parent="." index="2"]
 anims/RESET = SubResource( 19 )
 anims/attack1 = SubResource( 41 )
+anims/attack1_mov = SubResource( 112 )
+anims/attack2 = SubResource( 114 )
+anims/attack2_mov = SubResource( 113 )
+anims/die = SubResource( 132 )
 anims/fall = SubResource( 46 )
 anims/idle = SubResource( 18 )
 anims/jump = SubResource( 43 )
 anims/run = SubResource( 40 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+current = true
+
+[node name="CoyoteTimer" type="Timer" parent="." index="5"]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="6"]
+tree_root = SubResource( 98 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 99 )
+
+[node name="ComboTimer" type="Timer" parent="." index="7"]
+wait_time = 1.5
+one_shot = true
 
 [connection signal="body_entered" from="AnimatedSprite/HitArea" to="." method="_on_HitArea_body_entered"]

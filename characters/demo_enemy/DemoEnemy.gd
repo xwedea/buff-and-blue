@@ -1,19 +1,25 @@
 extends "res://characters/enemy_base/EnemyBase.gd"
 
 
-export var isGettingHit : bool = false
-var isDead : bool = false
+var stateMachine
+
+
+func _ready():
+	stateMachine = $AnimationTree.get("parameters/playback")
+	stateMachine.travel("idle")
+
 
 func move(delta : float):
-	
-	if !isGettingHit:
-		$AnimationPlayer.play("idle")
-	
+	var current_state = stateMachine.get_current_node()
 	.move(delta)
 
 
 func handle_hit(damage):
-	isGettingHit = true
-	$AnimationPlayer.play("hit")
-
+	stateMachine.travel("hit")
 	.handle_hit(damage)
+	
+	
+func die():
+	stateMachine.travel("die")
+	set_collision_mask_bit(3, false)
+	set_collision_mask_bit(1, false)
