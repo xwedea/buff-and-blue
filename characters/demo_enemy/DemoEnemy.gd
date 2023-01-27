@@ -20,6 +20,6 @@ func handle_hit(damage):
 	
 	
 func die():
-	stateMachine.travel("die")
-	set_collision_mask_bit(3, false)
 	set_collision_mask_bit(1, false)
+	stateMachine.travel("die")
+	

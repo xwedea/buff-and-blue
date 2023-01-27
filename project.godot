@@ -45,6 +45,16 @@ attack={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="general"
+2d_physics/layer_2="player"
+2d_physics/layer_3="player_hit"
+2d_physics/layer_4="enemy"
+2d_physics/layer_5="enemy_hit"
+2d_physics/layer_6="interactable"
+2d_physics/layer_7="destructible"
+
 [physics]
 
 common/enable_pause_aware_picking=true
