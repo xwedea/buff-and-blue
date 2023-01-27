@@ -15,9 +15,6 @@ func _ready():
 
 func move(delta):
 	var current_state = stateMachine.get_current_node()
-	
-	if Input.is_action_pressed("attack"):
-		print("AAAAAAAAA")
 		
 	if current_state != "attack1" and current_state != "attack2":
 		if Input.is_action_pressed("move_right"):
