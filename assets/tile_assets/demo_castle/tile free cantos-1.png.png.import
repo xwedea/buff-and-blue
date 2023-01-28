@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset.png-8f82129df069855d0899b64cd0ebc7f9.stex"
+path="res://.import/tile free cantos-1.png.png-9b01f7daeccfa0cb55460fa8c7ca6bc1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/nature_tileset/tileset.png"
-dest_files=[ "res://.import/tileset.png-8f82129df069855d0899b64cd0ebc7f9.stex" ]
+source_file="res://assets/tile_assets/demo_castle/tile free cantos-1.png.png"
+dest_files=[ "res://.import/tile free cantos-1.png.png-9b01f7daeccfa0cb55460fa8c7ca6bc1.stex" ]
 
 [params]
 
