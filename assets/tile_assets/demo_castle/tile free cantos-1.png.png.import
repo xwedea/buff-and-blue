@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile free cantos-1.png.png-2e09c3b176c03800e06db3d8088a3c32.stex"
+path="res://.import/tile free cantos-1.png.png-9b01f7daeccfa0cb55460fa8c7ca6bc1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemaps/demo_castle_tilemap/demo_castle_tileset/tile free cantos-1.png.png"
-dest_files=[ "res://.import/tile free cantos-1.png.png-2e09c3b176c03800e06db3d8088a3c32.stex" ]
+source_file="res://assets/tile_assets/demo_castle/tile free cantos-1.png.png"
+dest_files=[ "res://.import/tile free cantos-1.png.png-9b01f7daeccfa0cb55460fa8c7ca6bc1.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

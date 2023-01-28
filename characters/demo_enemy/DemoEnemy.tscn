@@ -176,8 +176,8 @@ graph_offset = Vector2( -105.526, 0 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [node name="DemoEnemy" instance=ExtResource( 1 )]
-collision_layer = 16
-collision_mask = 13
+collision_layer = 8
+collision_mask = 3
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" parent="." index="1"]
