@@ -2,6 +2,8 @@ extends "res://characters/agent_base/AgentBase.gd"
 
 enum PlayerStatus {NEUTRAL, ATTACKING, DIALOG}
 
+export var nextComboAttack = 1
+
 export var attackPower : int = 35
 export var bAttackCombo = false
 
@@ -15,6 +17,8 @@ func _ready():
 
 func move(delta):
 	var current_state = stateMachine.get_current_node()
+	
+	
 		
 	if current_state != "attack1" and current_state != "attack2":
 		if Input.is_action_pressed("move_right"):
@@ -34,10 +38,7 @@ func move(delta):
 
 
 	if Input.is_action_just_pressed("attack"):
-		if !$ComboTimer.is_stopped():
-			stateMachine.travel("attack2")
-		else:
-			stateMachine.travel("attack1")	
+		stateMachine.travel("attack" + str(nextComboAttack))
 	elif velocity.y > 0:
 		stateMachine.travel("fall")
 	elif velocity.y < 0:
@@ -59,4 +60,6 @@ func _on_HitArea_body_entered(body):
 	if body.has_method("handle_hit"):
 		body.handle_hit(attackPower)
 	
-	
+
+func _on_ComboTimer_timeout():
+	nextComboAttack = 1
