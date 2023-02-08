@@ -20,7 +20,6 @@ tile_data = PoolIntArray( -1966101, 1, 0, -1966100, 1, 0, -1966099, 1, 0, -19660
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -604, -560 )
-bAttackCombo = false
 
 [node name="DemoEnemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( -401, -560 )

@@ -6,17 +6,18 @@ var GRAVITY = 2000
 var MAXFALLSPEED = 400
 var MAXSPEED = 170
 var JUMPFORCE = 600
-var ACCELERATION = 40
+var ACCELERATION = 600
 
 var velocity = Vector2.ZERO
 var facing_right = true
+var direction : Vector2 # unit vector
 
 func _physics_process(delta):
 	move(delta)
 
 func move(delta):
 	# DIRECTION
-	if facing_right:
+	if direction.x > 0:
 		$AnimatedSprite.scale.x = 1
 	else:
 		$AnimatedSprite.scale.x = -1
@@ -29,6 +30,7 @@ func move(delta):
 		
 	if velocity.y > MAXFALLSPEED:
 		velocity.y = MAXFALLSPEED
+	
 	
 	# HORIZONTAL MOVEMENT
 	velocity.x = clamp(velocity.x, -MAXSPEED, MAXSPEED)

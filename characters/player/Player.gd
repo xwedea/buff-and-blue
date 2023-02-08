@@ -2,13 +2,10 @@ extends "res://characters/agent_base/AgentBase.gd"
 
 class_name Player
 
+signal attacking
 enum PlayerStatus {NEUTRAL, ATTACKING, DIALOG}
-
 export var nextComboAttack = 1
-
 export var attackPower : int = 35
-export var bAttackCombo = false
-
 var hasDoubleJump = true
 var stateMachine
 
@@ -20,15 +17,14 @@ func _ready():
 func move(delta):
 	var current_state = stateMachine.get_current_node()
 	
-	
 		
 	if current_state != "attack1" and current_state != "attack2":
 		if Input.is_action_pressed("move_right"):
-			velocity.x += ACCELERATION
-			facing_right = true
+			velocity.x += ACCELERATION * delta
+			direction = Vector2(1, 0)
 		elif Input.is_action_pressed("move_left"):
-			velocity.x -= ACCELERATION
-			facing_right = false
+			velocity.x -= ACCELERATION * delta
+			direction = Vector2(-1, 0)
 		else:
 			velocity.x = lerp(velocity.x, 0, 0.2)
 		# JUMP

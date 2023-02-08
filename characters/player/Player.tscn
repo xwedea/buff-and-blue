@@ -716,22 +716,22 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachine" id=98]
 states/attack1/node = SubResource( 115 )
-states/attack1/position = Vector2( 561.815, 104.293 )
+states/attack1/position = Vector2( 164.815, 397.293 )
 states/attack2/node = SubResource( 116 )
-states/attack2/position = Vector2( 568.815, 277.145 )
+states/attack2/position = Vector2( 438.815, 307.145 )
 states/die/node = SubResource( 133 )
-states/die/position = Vector2( 366, 29.1452 )
+states/die/position = Vector2( 474, 104.293 )
 states/fall/node = SubResource( 85 )
-states/fall/position = Vector2( 41, 296.145 )
+states/fall/position = Vector2( -81, 296.145 )
 states/idle/node = SubResource( 86 )
-states/idle/position = Vector2( 366, 125.293 )
+states/idle/position = Vector2( 235, 104.293 )
 states/jump/node = SubResource( 87 )
-states/jump/position = Vector2( 133, 104.293 )
+states/jump/position = Vector2( 35, 104.293 )
 states/run/node = SubResource( 88 )
-states/run/position = Vector2( 290, 327.293 )
+states/run/position = Vector2( 81, 197.293 )
 transitions = [ "run", "idle", SubResource( 89 ), "idle", "run", SubResource( 90 ), "idle", "jump", SubResource( 92 ), "jump", "idle", SubResource( 93 ), "jump", "fall", SubResource( 94 ), "fall", "jump", SubResource( 95 ), "fall", "run", SubResource( 96 ), "run", "fall", SubResource( 97 ), "idle", "attack1", SubResource( 117 ), "attack1", "attack2", SubResource( 118 ), "attack2", "idle", SubResource( 119 ), "attack1", "idle", SubResource( 120 ), "idle", "attack2", SubResource( 121 ), "idle", "die", SubResource( 134 ), "fall", "attack1", SubResource( 135 ) ]
 start_node = "idle"
-graph_offset = Vector2( -214.946, 24.6663 )
+graph_offset = Vector2( -214.946, 35.2626 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=99]
 
@@ -741,13 +741,12 @@ collision_layer = 2
 script = ExtResource( 3 )
 nextComboAttack = 1
 attackPower = 35
-bAttackCombo = true
 
 [node name="AnimatedSprite" parent="." index="1"]
 position = Vector2( 5, -21 )
 frames = SubResource( 47 )
 animation = "idle"
-frame = 1
+frame = 3
 
 [node name="HitArea" type="Area2D" parent="AnimatedSprite" index="0"]
 position = Vector2( -5, 21 )

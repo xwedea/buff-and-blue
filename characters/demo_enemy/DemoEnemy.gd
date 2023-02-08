@@ -2,18 +2,34 @@ extends "res://characters/enemy_base/EnemyBase.gd"
 
 var stateMachine
 var Player : Player
+onready var anim_tree = $AnimationTree
 
 func _ready():
-	stateMachine = $AnimationTree.get("parameters/playback")
+	stateMachine = anim_tree.get("parameters/playback")
 	stateMachine.travel("idle")
-	Player = get_tree().get_nodes_in_group("player")[0]
+	player = get_tree().get_nodes_in_group("player")[0]
 
 func move(delta : float):
-	var current_state = stateMachine.get_current_node()
+	var animState = stateMachine.get_current_node()
+	
+	
+#	direction = (player.position - position).normalized()
+#	if (direction.x > 0):
+#		velocity.x += ACCELERATION * delta
+#	elif (direction.x < 0):
+#		velocity.x -= ACCELERATION * delta
+	
+	if (enemyState == IDLE):
+		stateMachine.travel("idle")
+	elif (enemyState == COMBAT):
+		pass
+		
+		
+		
 	.move(delta)
 
-func _process(delta):
-	var current_state = stateMachine.get_current_node()
+	
+	
 
 
 func handle_hit(damage):
