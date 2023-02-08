@@ -1,5 +1,7 @@
 extends "res://characters/agent_base/AgentBase.gd"
 
+class_name Player
+
 enum PlayerStatus {NEUTRAL, ATTACKING, DIALOG}
 
 export var nextComboAttack = 1

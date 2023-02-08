@@ -20,17 +20,8 @@ tile_data = PoolIntArray( -1966101, 1, 0, -1966100, 1, 0, -1966099, 1, 0, -19660
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -604, -560 )
-nextComboAttack = 1
 bAttackCombo = false
 
 [node name="DemoEnemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( -401, -560 )
-scale = Vector2( -1, 1 )
-
-[node name="DemoEnemy2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -147, -816 )
-scale = Vector2( -1, 1 )
-
-[node name="DemoEnemy3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 144, -816 )
 scale = Vector2( -1, 1 )
