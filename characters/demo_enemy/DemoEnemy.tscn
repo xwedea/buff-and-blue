@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://characters/enemy_base/EnemyBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/demo_enemy/demo_enemy_spriteframes.tres" type="SpriteFrames" id=2]
@@ -128,20 +128,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0 ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "inAnimation"
-} ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "idle"
@@ -171,6 +157,34 @@ tracks/1/keys = {
 "values": [ "idle" ]
 }
 
+[sub_resource type="Animation" id=18]
+resource_name = "run"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
 [sub_resource type="AnimationNodeAnimation" id=15]
 animation = "attack1"
 
@@ -182,6 +196,9 @@ animation = "hit"
 
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=8]
 
@@ -199,18 +216,28 @@ auto_advance = true
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
 [sub_resource type="AnimationNodeStateMachine" id=12]
 states/attack1/node = SubResource( 15 )
-states/attack1/position = Vector2( 110, 197 )
+states/attack1/position = Vector2( -112, 318 )
 states/die/node = SubResource( 5 )
-states/die/position = Vector2( 332, 197 )
+states/die/position = Vector2( 188, 137 )
 states/hit/node = SubResource( 6 )
 states/hit/position = Vector2( 425, 50 )
 states/idle/node = SubResource( 7 )
-states/idle/position = Vector2( 212, 72 )
-transitions = [ "idle", "hit", SubResource( 8 ), "hit", "idle", SubResource( 9 ), "idle", "die", SubResource( 10 ), "hit", "die", SubResource( 11 ), "idle", "attack1", SubResource( 16 ), "attack1", "idle", SubResource( 17 ) ]
+states/idle/position = Vector2( 212, 318 )
+states/run/node = SubResource( 19 )
+states/run/position = Vector2( -51.526, 77 )
+transitions = [ "idle", "hit", SubResource( 8 ), "hit", "idle", SubResource( 9 ), "idle", "die", SubResource( 10 ), "hit", "die", SubResource( 11 ), "idle", "attack1", SubResource( 16 ), "attack1", "idle", SubResource( 17 ), "idle", "run", SubResource( 20 ), "run", "idle", SubResource( 21 ), "run", "hit", SubResource( 22 ), "run", "die", SubResource( 23 ) ]
 start_node = "idle"
-graph_offset = Vector2( -105.526, 19.7177 )
+graph_offset = Vector2( -283.689, 17.8639 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
@@ -230,11 +257,10 @@ anims/attack1 = SubResource( 14 )
 anims/die = SubResource( 2 )
 anims/hit = SubResource( 3 )
 anims/idle = SubResource( 4 )
+anims/run = SubResource( 18 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 tree_root = SubResource( 12 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 13 )
-
-[connection signal="got_hit" from="." to="HealthComponent" method="_on_DemoEnemy_got_hit"]

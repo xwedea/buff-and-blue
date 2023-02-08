@@ -13,6 +13,7 @@ var enemyState = IDLE;
 var player : Player
 	
 func _ready():
+	MAXSPEED = 100
 	$HealthComponent.connect("death", self, "die")
 	player = get_tree().get_nodes_in_group("player")[0]
 	
