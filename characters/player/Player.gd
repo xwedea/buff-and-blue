@@ -54,6 +54,8 @@ func start_combo_timer():
 	$ComboTimer.start()
 
 func _on_HitArea_body_entered(body):
+	$AudioStreamPlayer.play(0.00)
+	
 	if body.has_method("handle_hit"):
 		body.handle_hit(attackPower)
 	

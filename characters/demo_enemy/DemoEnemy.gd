@@ -1,6 +1,5 @@
 extends "res://characters/enemy_base/EnemyBase.gd"
 
-
 var stateMachine
 
 
@@ -22,4 +21,5 @@ func handle_hit(damage):
 func die():
 	set_collision_mask_bit(1, false)
 	stateMachine.travel("die")
+	
 	

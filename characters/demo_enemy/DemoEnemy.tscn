@@ -196,3 +196,5 @@ tree_root = SubResource( 12 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 13 )
+
+[connection signal="got_hit" from="." to="HealthComponent" method="_on_DemoEnemy_got_hit"]

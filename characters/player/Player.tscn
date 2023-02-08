@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://characters/agent_base/AgentBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/character_assets/player_assets/_Jump.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/character_assets/player_assets/_AttackCombo.png" type="Texture" id=8]
 [ext_resource path="res://assets/character_assets/player_assets/_Attack2.png" type="Texture" id=9]
 [ext_resource path="res://assets/character_assets/player_assets/_Death.png" type="Texture" id=10]
+[ext_resource path="res://sword.wav" type="AudioStream" id=11]
 
 [sub_resource type="AtlasTexture" id=48]
 atlas = ExtResource( 5 )
@@ -751,5 +752,9 @@ parameters/playback = SubResource( 99 )
 [node name="ComboTimer" type="Timer" parent="." index="7"]
 wait_time = 1.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 11 )
+volume_db = -51.032
 
 [connection signal="body_entered" from="AnimatedSprite/HitArea" to="." method="_on_HitArea_body_entered"]
